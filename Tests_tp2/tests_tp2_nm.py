@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class NM_tests:
     NOTIF = (By.ID, "flash")
-    #NOTIF1 = "Bonjour"
     NOTIF1 = "Action successful"
     NOTIF2 = "Action unsuccesful, please try again"
     

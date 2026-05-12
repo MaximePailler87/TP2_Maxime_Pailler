@@ -17,10 +17,10 @@ class NMPage:
     
     def open_NM_page(self):
         self.wait.until(EC.presence_of_element_located(self.NM_PAGE_LINK))
-        DC_link = self.driver.find_element(*self.NM_PAGE_LINK)
-        DC_link.click()
+        NM_link = self.driver.find_element(*self.NM_PAGE_LINK)
+        NM_link.click()
     
     def new_message(self):
         self.wait.until(EC.presence_of_element_located(self.NM_PAGE_LINK))
-        DC_link = self.driver.find_element(*self.NM_PAGE_LINK)
-        DC_link.click()
+        NM_link = self.driver.find_element(*self.NM_PAGE_LINK)
+        NM_link.click()

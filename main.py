@@ -1,15 +1,17 @@
 from selenium import webdriver
-from Pages import DCPage, DLPage, NMPage
-from Tests_tp2 import DC_tests, DL_tests, NM_tests
+from Pages import DCPage, DLPage, NMPage, ISPage
+from Tests_tp2 import DC_tests, DL_tests, NM_tests, IS_tests
 
 
 driver = webdriver.Firefox()
 page_DC= DCPage(driver)
 page_DL = DLPage(driver)
 page_NM = NMPage(driver)
+page_IS = ISPage(driver)
 test_DC = DC_tests(driver)
 test_DL = DL_tests(driver)
 test_NM = NM_tests(driver)
+test_IS = IS_tests(driver)
 
 try:
     print("=" * 60)
@@ -87,6 +89,21 @@ try:
         print(f"Essai n°{i+1}")
         page_NM.new_message()
         test_NM.test_message()
+
+#########################################################################################
+
+    print("=" * 40)
+    print("Partie 4 : Infinite Scroll")
+    print("=" * 40)
+    
+    print("\n--- Phase 1: Ouverture de la page web ---")
+    page_IS.open()
+    print("Accédé à the-internet.herokuapp.com")
+    
+    print("\n--- Phase 2: Accès à la page Infinite Scroll ---")
+    page_IS.open_IS_page()
+    
+    test_IS.diff_block_scroll()
         
 
 except Exception as e:
