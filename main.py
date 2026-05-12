@@ -1,13 +1,15 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from Pages import DCPage
-from Tests_tp2 import test_DC
+from Pages import DCPage, DLPage
+from Tests_tp2 import test_DC, test_DL
 
 
 driver = webdriver.Firefox()
 page_DC= DCPage(driver)
+page_DL = DLPage(driver)
 test_dc = test_DC(driver)
+test_dl = test_DL(driver)
 
 try:
     print("=" * 60)
@@ -47,7 +49,24 @@ try:
     
     page_DC.ecriture("Hello world")
 
+    print("=" * 40)
+    print("Partie 2 : Dynamic Loading")
+    print("=" * 40)
 
+    print("\n--- Phase 1: Ouverture de la page web ---")
+    page_DL.open()
+    print("Accédé à the-internet.herokuapp.com")
+    
+    print("\n--- Phase 2: Accès à la page Dynamic Control ---")
+    page_DL.open_DL_page()
+    
+    print("\n--- Phase 3: Accès à l'exemple 2 ---")
+    page_DL.click_example2()
+    test_dl.test_bouton_start()
+    
+    print("\n--- Phase 4: Lancement de l'exemple 2 ---")
+    page_DL.click_start()
+    test_dl.test_message_fin
 
 except Exception as e:
         print(f"\nErreur: {e}")
